@@ -1,11 +1,11 @@
 id = "io.buildpacks.stacks.jammy"
-homepage = "https://github.com/paketo-buildpacks/jammy-full-stack"
-maintainer = "Paketo Buildpacks"
+homepage = "https://github.com/elthariel/jammy-varapp-stack"
+maintainer = "Lta"
 
 platforms = ["linux/amd64"]
 
 [build]
-  description = "ubuntu:jammy with compilers and common libraries and utilities"
+  description = "Upstream jammy-full with varapp deps"
   dockerfile = "./build.Dockerfile"
   gid = 1000
   shell = "/bin/bash"
@@ -197,10 +197,13 @@ platforms = ["linux/amd64"]
     uuid-dev \
     wget \
     zip \
+    \
+    libvips42 \
+    libvips-dev
     """
 
 [run]
-  description = "ubuntu:jammy with common libraries and utilities"
+  description = "ubuntu:jammy with common libraries and utilities + varapp deps"
   dockerfile = "./run.Dockerfile"
   gid = 1000
   shell = "/bin/bash"
@@ -268,7 +271,6 @@ platforms = ["linux/amd64"]
     liblockfile-bin \
     liblockfile1 \
     libmagic1 \
-    libmariadb3 \
     libmodule-pluggable-perl \
     libmpc3:amd64 \
     libmpfr6:amd64 \
@@ -318,7 +320,6 @@ platforms = ["linux/amd64"]
     lzma \
     net-tools \
     ocaml-base-nox \
-    openssh-client \
     openssl \
     psmisc \
     python3 \
@@ -331,4 +332,6 @@ platforms = ["linux/amd64"]
     uuid \
     wget \
     zip \
+    \
+    libvips42
     """
